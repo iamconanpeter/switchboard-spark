@@ -1,62 +1,24 @@
-# Spec
+# Switchboard Spark - Spec
 
-## Concept
-- **Name:** Switchboard Spark
-- **Slug:** `switchboard-spark`
-- **Concept Rank:** 16
-- **Genre:** deterministic micro puzzle
-- **Core Loop:** tap a node, flip its full row and column, align the live board with a target electric pattern, finish at or under par, spend one undo token if needed, then move to the next puzzle.
+Core concept: An Android lightweight puzzle game featuring a deterministic row/column flip mechanic on a 3x3 grid. Players aim to transform the starting grid into a target pattern under a fixed number of moves (par), with one undo token available per round.
 
-## Q&A Discovery
-- **Q: What is the 10-second hook?** A single tap rewires the whole grid, so every move feels large and readable.
-- **Q: What fantasy is being sold?** You are restoring a broken power board with clean, clever reroutes.
-- **Q: Why do players come back daily or weekly?** Short daily puzzle packs, medal chasing against par, and streak-safe rewards for near-miss returns.
-- **Q: What session lengths should it support?** 30-second single clears, 2-minute daily runs, 5-minute retry-and-improve sessions.
-- **Q: Is the game skill or luck driven?** Fully skill-driven; puzzle states are deterministic and solvable.
-- **Q: How is failure kept fair?** Every board shows current parity, par target, and one undo; losses come from visible move inefficiency, not randomness.
-- **Q: How does onboarding work?** Start with 3x3 boards, teach row flip, column flip, overlap center behavior, then introduce par and undo.
-- **Q: What makes it distinct from low-quality Android clones?** Strong puzzle readability, authored target patterns, and strict deterministic feel instead of noisy effect spam.
-- **Q: What art scope fits a small team?** Minimal neon switchboard theme, one board skin at MVP, high-contrast target overlays, restrained but polished VFX.
-- **Q: What is the audio/feedback plan?** Crisp relay clicks, soft hum build-up, success chord on exact-par clears, warning sting when the undo is consumed.
-- **Q: How is monetization kept safe?** Optional hints or cosmetic board themes later; no energy timers, no forced ads, no pay-to-solve.
-- **Q: What technical constraints matter most?** Instant input response, deterministic solver validation, tiny battery footprint, and stable performance on low-mid mobile devices.
+Q&A Discovery (Plan-Mode)
+- Core fantasy and 10-second hook:
+  - A crisp neon-puzzle where every tap reshapes the board by flipping an entire row or column; solve within par moves for a satisfying sense of control.
+  - 10-second hook: See a seed board and immediately start flipping rows/columns to reach the target in a few taps.
+- Why users come back (daily/weekly loop):
+  - Daily seeds with new target patterns, streak bonuses on solving under par, and a local leaderboard for best times.
+- Session length targets: 30s quick rounds; 2m typical; 5m for advanced sessions.
+- Skill vs luck balance: Pure logic with deterministic outcomes; no randomness in state transitions during a round.
+- Fail-state fairness and frustration controls: If stuck, allow one undo; no penalty for exploration; reset after a fixed number of moves.
+- Difficulty ramp and onboarding: Gradual introduction of row flips, then column flips, then mixed moves; hint economy added later.
+- Distinctive mechanic vs common Android clones: Whole-row/column flips yield a readable, tactile feedback loop; parity-based progression enables predictable mastery.
+- Art/animation scope feasible for small team: Neon-on-dark aesthetic with simple flip animations; 2-3 art assets for grid states.
+- Audio/feedback plan: Crisp button clicks, small success chime on solve, subtle glow on flips.
+- Monetization-safe design (optional): Cosmetic skins and hint pack, not required to play.
+- Technical constraints and performance budgets: Target 60fps on mid-range devices; minimal allocations per move; efficient 3x3 grid updates.
 
-## Assumptions
-- The board is a square grid of binary node states: on/off.
-- A tap flips every node in the tapped row and tapped column, with the tapped node flipped once, not twice.
-- Every shipped puzzle has a verified solution path at or under par.
-- One undo token is granted per puzzle attempt, not stackable across attempts.
-- MVP targets mobile portrait play first, with offline support and no account requirement.
-
-## USP
-- A one-tap row-and-column flip puzzle where every move rewires the whole board and every win is earned under a visible par target.
-
-## Differentiators
-- Deterministic board logic with zero RNG during play.
-- Par-based mastery layer that turns correct solves into optimization play.
-- Single-use undo that softens frustration without removing tension.
-
-## Retention Hooks
-- Daily circuit: one curated pack per day with bronze/silver/gold clear goals.
-- Clean return value: failed or over-par runs still award progress toward unlock tracks.
-- Variable challenge: rotating modifiers after MVP, such as blocked nodes or mirrored target shapes.
-
-## Quality Bars
-- Readability: players can parse current state, target state, and move delta in under 1 second.
-- Feel: tap-to-flip response must feel immediate, with clear audiovisual confirmation.
-- Smoothness: puzzle resets, undo, and win transitions must be fast enough to encourage instant retries.
-
-## MVP vs Post-MVP
-### MVP
-- 3x3 to 6x6 authored puzzles.
-- Target-pattern preview and live board comparison.
-- Par move targets, one undo token, retry, and hint-free progression.
-- Daily puzzle slot and local progress save.
-- Basic medal system and lightweight stats.
-
-### Post-MVP
-- Endless generated puzzle mode with solver-backed quality filters.
-- Puzzle modifiers, theme packs, and seasonal boards.
-- Hint system, weekly challenge ladders, and ghost replay of best solutions.
-- Accessibility upgrades such as alternate color palettes and haptics tuning.
-
+Assumptions (if user answers unavailable):
+- No licensed IP; original art and sound assets.
+- Target device: Android 6.0+ compatible; low memory footprint.
+- Leaderboard uses local storage with optional cloud sync later.

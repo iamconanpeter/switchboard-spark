@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SwitchboardSpark"
+rootProject.name = "OrbitTapRush"
 include(":app")
