@@ -1,0 +1,2 @@
+[codex] plan-mode started for project: switchboard-spark
+Command: codex exec plan --repo https://github.com/iamconanpeter/switchboard-spark --task "MVP scaffold"

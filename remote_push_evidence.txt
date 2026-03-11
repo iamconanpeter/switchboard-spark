@@ -1,0 +1,6 @@
+To push to GitHub:
+  git remote add origin https://github.com/iamconanpeter/switchboard-spark.git
+  git branch -M main
+  git push -u origin main
+
+Note: Authentication may require a token.
