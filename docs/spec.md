@@ -1,100 +1,54 @@
-I couldn’t read local workspace templates due a sandbox execution fault, so I mapped this to a standard game-planning spec format.
+# Switchboard Spark – Game Specification
 
-**Switchboard Spark — Game Planning Spec (Draft v0.1)**
+## Core Fantasy & 10‑second Hook
+- **Fantasy**: Players control a tiny “spark” of electricity that must jump across a circuit board, lighting up nodes while avoiding overloads.
+- **Hook**: A single‑tap sends the spark in a straight line; the goal is to hit a moving target node within ~10 seconds for a burst of points.
 
-**1. Concept**
-- Working Title: `Switchboard Spark`
-- Genre: Tactical lane-defense + chain-reaction puzzle roguelite
-- Core Fantasy: “Route power, trigger perfect cascades, and save a collapsing neon grid.”
-- Target Session: 12–20 minutes per run
-- Platforms: PC first, Steam Deck-compatible, console-ready controls in scope
+## Retention Loop / Daily Challenge
+- Daily seeded board layouts with a “high‑score” leaderboard.
+- Streak of consecutive days with a successful board gives a multiplier.
 
-**2. Player / Market**
-- Primary Audience: Players who like `Into the Breach`, `Slay the Spire`, `Mini Motorways`, `Luck be a Landlord`
-- Secondary Audience: Streamers seeking “one more run” strategy games with readable clutch moments
-- Rating Target: E10+/T (no graphic violence)
+## Session Length Targets
+- **Micro‑session**: 30 seconds to 2 minutes per board.
+- **Full‑run**: 5‑10 minutes for a series of 10 boards.
 
-**3. Core Gameplay Loop**
-- Plan phase: Place/re-route modules on a city switchboard.
-- Sim phase: Sparks travel through routes in real-time ticks.
-- Resolve phase: Chain reactions score, defend districts, and unlock upgrades.
-- Meta phase: Spend run currency on permanent unlock trees and modifier cards.
+## Skill vs Luck Balance
+- Skill: timing of tap, angle selection, and quick decision making.
+- Luck: randomized board seed and target movement pattern (deterministic per‑day seed).
 
-**4. USP (Unique Selling Proposition)**
-- “A roguelite where *positioning* and *timing* both matter every 10 seconds.”
-- Hybrid loop: deterministic planning + high-drama spark execution.
-- Spectacle with clarity: huge chain reactions that remain tactically legible.
+## Fail‑State Fairness & Frustration Controls
+- One‑undo token per board to revert a mis‑tap.
+- Clear visual feedback on overloads; no permanent loss of progress.
 
-**5. Differentiation**
-- Versus pure deckbuilders: no card-hand RNG bottleneck; board topology is the strategic core.
-- Versus tower defense: ultra-short runs, deterministic previews, and puzzle-like reroute actions.
-- Versus autobattlers: constant micro-decisions during simulation windows (switch, overload, cut).
+## Difficulty Ramp & On‑boarding
+- Boards start with wide gaps and slow target movement.
+- Gradual increase in node density and target speed.
+- Tutorial board introduces mechanics with hand‑holding prompts.
 
-**6. Retention Hooks**
-- Daily Grid Seed with global leaderboard.
-- Weekly mutators (“Low Voltage,” “Overheat,” “Ghost Lines”).
-- Unlockable operators with distinct passives and starter modules.
-- Build-defining relics that alter spark physics.
-- Milestone quests tied to playstyle (“Win with 0 overload events,” etc.).
-- Post-run “near miss” recap highlighting lost value and improvement opportunities.
+## Distinctive Mechanic vs Android Clones
+- Unique “spark‑chain” mechanic where hitting a node activates a chain reaction lighting adjacent nodes for bonus points.
+- Minimalist neon‑style aesthetic distinct from typical “match‑3” or “runner” clones.
 
-**7. Systems Overview**
-- Board: Node-and-line grid with district objectives.
-- Threats: Surge waves, sabotage drones, blackout storms.
-- Player Tools: Modules (splitter, amplifier, capacitor, fuse), emergency actions, operator skills.
-- Resource Model: Energy, Heat, Credits.
-- Failure State: District stability hits zero in required zones.
-- Win State: Survive N waves + stabilize final overload event.
+## Art / Animation Scope (Small Team)
+- Simple vector‑based neon outlines for nodes and spark.
+- Light particle effects for chain reactions (few sprite sheets).
+- 2‑3 background themes (dark circuit, light circuit) – reusable assets.
 
-**8. Progression**
-- Run Progression: Biome map with branching risk/reward nodes.
-- Meta Progression: Operator unlocks, module pool expansion, cosmetic board themes.
-- Difficulty Ladder: Ascension-style tiers adding constraints before raw stat inflation.
+## Audio / Feedback Plan
+- Subtle “zap” sound on tap, layered with a soft ambient hum.
+- Positive chime on chain reactions, gentle buzz on overload.
+- All audio generated from royalty‑free synth packs.
 
-**9. Content Plan (Launch)**
-- 4 biomes
-- 8 operators
-- 45 modules
-- 60 relics
-- 30 mutators
-- 3 final bosses/events
-- Daily/weekly challenge pipeline live at launch
+## Monetization‑Safe Design (No Dark Patterns)
+- Optional non‑intrusive rewarded video for an extra undo token.
+- Small “remove‑ads” IAP (single purchase).
+- No pay‑to‑win mechanics; all core gameplay is free.
 
-**10. Q&A (Design Decisions)**
-- Q: Why real-time simulation instead of turn-only?
-- A: Real-time spark travel creates tension and streamable clutch moments without long downtime.
-- Q: How do we prevent chaos from feeling random?
-- A: Deterministic sim previews, clear telegraphs, and rewind-once tutorial scaffolding.
-- Q: What makes replayability durable?
-- A: Board topology variance + operator identity + relic physics modifiers + mutators.
-- Q: How is onboarding handled for non-hardcore players?
-- A: 3-run guided arc, optional assist toggles, and “suggested route” hint overlays.
-- Q: How do we avoid dominant strategies?
-- A: Heat penalties, situational counters, and rotating weekly mutator incentives.
-- Q: Why this theme?
-- A: Neon-grid utility crisis supports readable systems language and high-contrast effects.
+## Technical Constraints & Performance Budgets
+- Target Android 5.0+ (API 21). Minimum device RAM 512 MB.
+- 60 fps target; limit draw calls to ≤150 per frame.
+- Keep APK size < 30 MB (no heavy assets).
+- Use Kotlin + Jetpack Compose for UI; minimal native libs.
 
-**11. Quality Bars**
-- Readability: 95% of deaths attributable to visible/telegraphed causes in playtests.
-- Input Feel: Action-to-response latency under 100ms on target hardware.
-- Run Pace: First meaningful decision <20s from run start.
-- Build Variety: At least 6 viable archetypes at highest shipped difficulty tier.
-- Retention: D1 >40%, D7 >15% (PC premium target bands).
-- Stability: Crash-free sessions >99.5% in release candidate telemetry.
-- Accessibility: Full key remap, colorblind modes, motion reduction, scalable UI.
-
-**12. MVP Slice (8–12 weeks)**
-- 1 biome, 2 operators, 12 modules, 15 relics, 1 boss event.
-- Full loop playable: tutorial → run → meta spend → re-run.
-- Basic daily seed + local leaderboard stub.
-- Internal telemetry for difficulty, run length, and failure causes.
-
-**13. Top Risks + Mitigations**
-- Cognitive overload in mid/late waves.
-- Mitigation: layered UI reveal, optional pause-planning, preview lanes.
-- Balance complexity explosion from relic interactions.
-- Mitigation: simulation tests + banned pair lists pre-launch.
-- Spectacle hurting readability.
-- Mitigation: VFX budget caps, silhouette/contrast rules, replay scrubber.
-
-If you want, I can convert this into your exact local “Game Planning Standard” file format once you paste that template (or once shell access is working).
+---
+*All assumptions are based on iOS‑hot references and are marked as assumptions where no direct user input was provided.*
