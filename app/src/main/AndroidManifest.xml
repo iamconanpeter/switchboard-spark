@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.iamconanpeter.switchboardspark">
+    package="com.example.switchboardspark">
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Switchboard Spark"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+        android:theme="@style/Theme.SwitchboardSpark">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -15,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
